@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Header from './components/Header'
+import SocalledNavbar from './components/SocalledNavbar/SocalledNavbar'
+
 class App extends Component {
     state = {  }
     render() { 
         // const {currentUser } = this.props
         return ( 
-            <div>
-                <Header />
-                <div>
-                    {/* <p>hello, { currentUser}</p> */}
-                </div>
-            </div>
+            <SocalledNavbar />
+
          );
     }
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Header = () => {
+const NavItem = ({children}) => {
     return ( 
         <div>
-            this will be the header
+            {children}
         </div>
      );
 }
  
-export default Header;
+export default NavItem;
