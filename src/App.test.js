@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme'
+
 import RootProvider from './RootProvider'
 import App from './App'
 import Header from './components/Header'
