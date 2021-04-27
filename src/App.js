@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import {Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
 import SocalledNavbar from './components/SocalledNavbar/SocalledNavbar'
@@ -11,11 +12,13 @@ class App extends Component {
         // const {currentUser } = this.props
         return ( 
             <React.Fragment>
+              
                 <SocalledNavbar />
-                {/* <Switch>
-                    <Route path="/" component={Main}/>
-                    <Route path="/" component={About}/>
-                </Switch> */}
+                <Switch>
+                    <Route exact path="/" component={Main}/>
+                    <Route path="/about" component={About}/>
+                </Switch>
+                
             </React.Fragment>
          );
     }

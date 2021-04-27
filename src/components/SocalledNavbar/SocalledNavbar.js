@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
-
+import Logo from './Logo/Logo'
 import Navbar from './Navbar'
-import NavItem from './NavbarItem'
+import NavbarLogo from './NavbarLogo'
+import NavbarItem from './NavbarItem'
 
-const NavbarConfig = [
-    {
+const NavbarConfig = {
+
+    home : {
+        
         path: '/',
-        title: 'home'
+        title: 'home',
+        logo: Logo
     },
-    {
-        path: '/about',
-        title: 'about'
-    }
-]
+    items :[ 
+        {
+            id: 0,
+            path: '/about',
+            title: 'about'
+        },
+        {
+            id: 1,
+            path: '/more',
+            title: 'more'
+        }
+    ]
+}
 
 
 class SocalledNavbar extends Component {
@@ -21,12 +33,11 @@ class SocalledNavbar extends Component {
         return ( 
            
             <Navbar>
+                {<NavbarLogo data={NavbarConfig.home} />}
                 {
-                    NavbarConfig.map(item => {
+                    NavbarConfig.items.map(item => {
                         return (
-                            <NavItem>
-                                {item.title}
-                            </NavItem>
+                            <NavbarItem key={item.id} item={item} />
                         )
                     })
                 }

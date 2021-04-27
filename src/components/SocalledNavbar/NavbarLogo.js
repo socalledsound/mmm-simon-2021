@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import FlexContainer from './FlexContainer'
 import styled from 'styled-components'
@@ -30,14 +30,14 @@ box-sizing: border-box;
 
 
 
-const NavItem = ({item}) => {
+const NavbarLogo = ({data}) => {
     return ( 
-        <FlexContainer >
-            <NavbarLink to={item.path}>
-            {item.title}
-            </NavbarLink>
+        <FlexContainer>
+        <NavbarLink  to="/" >
+            {<data.logo />}
+        </NavbarLink >    
         </FlexContainer>
      );
 }
  
-export default NavItem;
+export default NavbarLogo;
