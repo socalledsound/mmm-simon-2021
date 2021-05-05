@@ -2,7 +2,7 @@ import React from 'react';
 // import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Button = styled('button')`
+const Button = styled.button`
 
 margin-left: 0.4rem;
 margin-right: 0.4rem;
@@ -18,7 +18,8 @@ border: 1px solid #000;
 text-decoration: none;
 border-radius: 0.3rem;
 font-size: 0.9rem;
-// height: 5rem;
+width: 5rem;
+height: 5rem;
 vertical-align: middle;
 box-sizing: border-box;
 
@@ -30,11 +31,10 @@ box-sizing: border-box;
 
 
 
-const NavItem = ({item}) => {
+const NavItem = ({Content, toggleModal}) => {
     return ( 
-      
-            <Button  >
-            {item.title}
+            <Button  onClick={() => toggleModal(Content)}>
+                {<Content />}
             </Button>
         
      );

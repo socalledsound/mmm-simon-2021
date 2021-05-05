@@ -3,7 +3,7 @@ import React from 'react'
 import FlexContainer from './FlexContainer'
 import styled from 'styled-components'
 
-const NavbarLink = styled('div')`
+const NavbarLink = styled.div`
 height: 5rem;
 width : 5rem;
 vertical-align: middle;
@@ -33,11 +33,11 @@ font-size: 0.9rem;
 
 
 
-const NavbarLogo = ({data}) => {
+const NavbarLogo = ({Logo}) => {
     return ( 
         <FlexContainer>
         <NavbarLink  >
-            {<data.logo />}
+            {<Logo />}
         </NavbarLink >    
         </FlexContainer>
      );

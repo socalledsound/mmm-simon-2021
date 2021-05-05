@@ -1,60 +1,70 @@
 import React, { Component } from 'react';
-import Logo from '../../assets/SimonLogo/SimonLogo'
+
 import QuestionMark from './QuestionMark'
 import ControlsIcon from './ControlsIcon'
 import Navbar from './Navbar'
 import NavbarLogo from './NavbarLogo'
 import NavbarItem from './NavbarItem'
 import FlexContainer from './FlexContainer'
-import About from '../../pages/About/About'
-import Controls from '../../pages/controls-page/Controls'
 
-const NavbarConfig = {
 
-    home : {
-        logo: Logo
-    },
-    items :[ 
-        {
-            id: 0,
-            modal: About,
-            icon: QuestionMark,
-        },
-        {
-            id: 1,
-            modal: Controls,
-            icon: ControlsIcon,
-        },
-        {
-            id: 2,
-            path: '/controls',
-            title: 'more'
-        }
+// const NavbarConfig = {
 
-    ]
-}
+//     home : {
+//         logo: Logo
+//     },
+//     items :[ 
+//         {
+//             id: 0,
+//             modal: About,
+//             icon: QuestionMark,
+//         },
+//         {
+//             id: 1,
+//             modal: Controls,
+//             icon: ControlsIcon,
+//         },
+//         {
+//             id: 2,
+//             path: '/controls',
+//             title: 'more'
+//         }
+
+//     ]
+// }
 
 
 class SocalledNavbar extends Component {
     state = {  }
     render() { 
+        // const { config } = this.props;
+        const { Logo, Controls, About, toggleModal } = this.props; 
+
+
         return ( 
            
             <Navbar>
                  
                  <FlexContainer>
-                    {<NavbarLogo data={NavbarConfig.home} />}
+                    {<NavbarLogo Logo={Logo} />}
                  </FlexContainer>
 
                  <FlexContainer>
                 {
-                    NavbarConfig.items.map(item => {
-                        
-                        return (                          
-                            <NavbarItem key={item.id} item={item} />
-                        )
-                    }) 
+                    Controls &&
+                    <NavbarItem 
+                        toggleModal={() => toggleModal(Controls)}
+                        Content={ControlsIcon}
+                    />
                 }
+                {
+                    About &&
+                    <NavbarItem 
+                        toggleModal={() => toggleModal(About)}
+                        Content={QuestionMark}
+                        />
+
+                    }
                  </FlexContainer>
             </Navbar>
 
