@@ -1,15 +1,16 @@
 import { createStore, combineReducers } from 'redux'
+import mouseReducer from './mouse/mouseReducer'
+import soundSliceReducer from './soundSlice/soundSlice.reducer'
+import gameReducer from './game/game.reducer'
+import userReducer from './user/userReducer'
 
-
-// const mockReducer = (state = {currentUser: 'sam'}) => {
-//     return {
-//         ...state
-//     }
-// }
 
 
 const rootReducer = combineReducers({
-    user: (state = {currentUser: 'sam'}, action) => ({...state}),
+    user: userReducer,
+    mouse : mouseReducer,
+    soundSlices : soundSliceReducer,
+    game : gameReducer,
 })
 
 const store = createStore(rootReducer)

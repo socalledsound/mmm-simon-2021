@@ -1,8 +1,9 @@
 import React from 'react';
+import 'jest-canvas-mock';
 import { mount } from 'enzyme'
 import RootProvider from '../../RootProvider'
-import Navbar from './Navbar'
-
+import SocalledNavbar from './SocalledNavbar'
+import Logo from '../../assets/SimonLogo/SimonLogo'
 
 // const setup = (initialState = {}) => {
 //     const store = store
@@ -11,7 +12,7 @@ import Navbar from './Navbar'
 const RP = () => {
     return (
         <RootProvider>
-            <Navbar />
+            <SocalledNavbar />
         </RootProvider>
     )
 }
@@ -26,6 +27,6 @@ afterEach(() => {
     wrapped.unmount()
 })
 
-it('has a nav element', () => {
-    expect(wrapped.find('nav').length).toEqual(1)
+it('has a logo', () => {
+    expect(wrapped.find(Logo).length).toEqual(1)
 })

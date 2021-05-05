@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 import {Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
 import SocalledNavbar from './components/SocalledNavbar/SocalledNavbar'
-import Main from './pages/Main'
-import About from './pages/About'
+import Main from './pages/Main/Main'
+import About from './pages/About/About'
 
 class App extends Component {
     state = {  }

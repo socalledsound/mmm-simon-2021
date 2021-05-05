@@ -1,10 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme'
+import 'jest-canvas-mock';
 
+import { mount } from 'enzyme'
 import RootProvider from './RootProvider'
 import App from './App'
-import Header from './components/Header'
-
+import SocalledNavbar from './components/SocalledNavbar/SocalledNavbar'
 
 // const setup = (initialState = {}) => {
 //     const store = store
@@ -30,6 +30,6 @@ afterEach(() => {
 
 it('has a header', () => {
     
-    expect(app.find(Header).length).toEqual(1)
+    expect(app.find(SocalledNavbar).length).toEqual(1)
 
 })

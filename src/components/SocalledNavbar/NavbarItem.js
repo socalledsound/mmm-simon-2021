@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
-import FlexContainer from './FlexContainer'
 import styled from 'styled-components'
 
 const NavbarLink = styled(NavLink)`
@@ -12,19 +11,20 @@ padding-right: 1rem;
 padding-top: 0.7rem; */
 
 padding: 2rem;
-padding-top: 1rem;
-margin-top: 1rem;
-/* padding-bottom: 1.2rem; */
-/* background-color: #7c7c7c; */
-background-color: #372b2b;
-color: #202020;
+//background-color: #fedeff;
+background-color: #505050;
+color: #FAFAFA;
 border: 1px solid #000;
 text-decoration: none;
 border-radius: 0.3rem;
 font-size: 0.9rem;
-height: 5rem;
+// height: 5rem;
 vertical-align: middle;
 box-sizing: border-box;
+
+&:hover{
+    background-color: #aaaaaa;
+}
 
 `;
 
@@ -32,11 +32,11 @@ box-sizing: border-box;
 
 const NavItem = ({item}) => {
     return ( 
-        <FlexContainer >
-            <NavbarLink to={item.path}>
+      
+            <NavbarLink key={item.id} to={item.path}>
             {item.title}
             </NavbarLink>
-        </FlexContainer>
+        
      );
 }
  

@@ -8,9 +8,10 @@ const NavbarEl = styled.nav`
 
 const NavbarList = styled.ul`
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   list-style: none;
   margin: 0;
+  margin-top: 0.5rem;
 `
 
 

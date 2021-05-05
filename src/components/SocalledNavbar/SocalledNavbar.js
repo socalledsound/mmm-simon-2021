@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Logo from './Logo/Logo'
+import Logo from '../../assets/SimonLogo/SimonLogo'
 import Navbar from './Navbar'
 import NavbarLogo from './NavbarLogo'
 import NavbarItem from './NavbarItem'
-
+import FlexContainer from './FlexContainer'
 const NavbarConfig = {
 
     home : {
@@ -22,7 +22,13 @@ const NavbarConfig = {
             id: 1,
             path: '/more',
             title: 'more'
+        },
+        {
+            id: 2,
+            path: '/controls',
+            title: 'more'
         }
+
     ]
 }
 
@@ -33,14 +39,21 @@ class SocalledNavbar extends Component {
         return ( 
            
             <Navbar>
-                {<NavbarLogo data={NavbarConfig.home} />}
+                 
+                 <FlexContainer>
+                    {<NavbarLogo data={NavbarConfig.home} />}
+                 </FlexContainer>
+
+                 <FlexContainer>
                 {
                     NavbarConfig.items.map(item => {
-                        return (
+                        
+                        return (                          
                             <NavbarItem key={item.id} item={item} />
                         )
-                    })
+                    }) 
                 }
+                 </FlexContainer>
             </Navbar>
 
         
