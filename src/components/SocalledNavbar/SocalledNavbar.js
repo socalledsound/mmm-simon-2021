@@ -1,27 +1,29 @@
 import React, { Component } from 'react';
 import Logo from '../../assets/SimonLogo/SimonLogo'
+import QuestionMark from './QuestionMark'
+import ControlsIcon from './ControlsIcon'
 import Navbar from './Navbar'
 import NavbarLogo from './NavbarLogo'
 import NavbarItem from './NavbarItem'
 import FlexContainer from './FlexContainer'
+import About from '../../pages/About/About'
+import Controls from '../../pages/controls-page/Controls'
+
 const NavbarConfig = {
 
     home : {
-        
-        path: '/',
-        title: 'home',
         logo: Logo
     },
     items :[ 
         {
             id: 0,
-            path: '/about',
-            title: 'about'
+            modal: About,
+            icon: QuestionMark,
         },
         {
             id: 1,
-            path: '/more',
-            title: 'more'
+            modal: Controls,
+            icon: ControlsIcon,
         },
         {
             id: 2,

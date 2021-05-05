@@ -24,11 +24,7 @@ const MainSVG = ({ canvasWidth, canvasHeight, circleRadius, soundSlices, joined,
     <BackgroundCircle cx={canvasWidth/2} cy={canvasHeight/2} r={circleRadius}/>
 
 
-        {   
-            !joined ? 
-
-                <JoinButton cx={canvasWidth/2} cy={canvasHeight/2} r={circleRadius/3}/>
-                :
+        {    
                 soundSlices.length > 0 && soundSlices.map(soundSlice => 
                         <Arc 
                         key={soundSlice.id}
@@ -53,9 +49,17 @@ const MainSVG = ({ canvasWidth, canvasHeight, circleRadius, soundSlices, joined,
                         
                 />
                 )
+        }
+
+        {
+            !joined && 
+
+            <JoinButton cx={canvasWidth/2} cy={canvasHeight/2} r={circleRadius/3}/>
             
 
         }
+
+
         </g>
 
     <circle cx={mousePos.x} cy = {mousePos.y - 120} r="10" fill="yellow" /> 

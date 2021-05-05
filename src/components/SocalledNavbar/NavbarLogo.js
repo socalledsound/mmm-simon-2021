@@ -1,9 +1,9 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 import FlexContainer from './FlexContainer'
 import styled from 'styled-components'
 
-const NavbarLink = styled(NavLink)`
+const NavbarLink = styled('div')`
 height: 5rem;
 width : 5rem;
 vertical-align: middle;
@@ -36,7 +36,7 @@ font-size: 0.9rem;
 const NavbarLogo = ({data}) => {
     return ( 
         <FlexContainer>
-        <NavbarLink  to="/" >
+        <NavbarLink  >
             {<data.logo />}
         </NavbarLink >    
         </FlexContainer>

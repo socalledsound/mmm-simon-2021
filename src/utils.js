@@ -1,3 +1,32 @@
+
+export const importAll = require =>
+require.keys().reduce((acc, next, i) => {
+  acc[i] = require(next);
+  // console.log(acc)
+  return acc;
+}, []);
+
+
+export const resizeCanvasToDisplaySize = (canvas) => {
+    
+    const { width, height } = canvas.getBoundingClientRect()
+
+    if (canvas.width !== width || canvas.height !== height) {
+      canvas.width = width
+      canvas.height = height
+      return true // here you can return some usefull information like delta width and delta height instead of just true
+      // this information can be used in the next redraw...
+    }
+
+    return false
+  }
+
+
+  export const createLinePath = (arr) => {
+    return `M${arr.map((item, i) => [item[0], item[1]]).join('L')}`;
+    
+}
+
 export const createCirclePath = vertices => 
     `M${vertices.map( ({theta, r, offsetX, offsetY}) =>  [
         offsetX + (r * Math.cos(theta)),

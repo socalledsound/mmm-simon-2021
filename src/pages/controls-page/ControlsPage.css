@@ -1,0 +1,130 @@
+.flex-wrapper {
+  position: absolute;
+  top: 18vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  box-sizing: border-box;
+  /* vertical-align: center; */
+}
+
+.control-modal {
+  display: none;
+  width: 90vw;
+  /* max-width: 1000px; */
+  /* height: 75vh; */
+  box-sizing: border-box;
+  background-color: rgba(30, 30, 30, 0.1);
+  color: black;
+  border-radius: 0.3rem;
+  position: relative;
+  padding-right: 1.2rem;
+  padding-left: 1.2rem;
+  padding-top: 0.8rem;
+  border: 1px solid rgba(200, 200, 200, 0.3);
+}
+
+.open {
+  display: inline-block;
+}
+
+.close {
+  padding: 0;
+  font-size: 1.6rem;
+  float: right;
+  cursor: pointer;
+  color: white;
+}
+
+.whiteP {
+  padding: 0;
+  margin-top: 0;
+  color: white;
+}
+
+.all-slider-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center;
+  align-items: center; */
+  margin-bottom: 0.2rem;
+  box-sizing: border-box;
+  padding: 0.6rem;
+}
+
+.master-controls-container {
+  width: 40%;
+  max-width: 10rem;
+  background-color: rgb(100, 100, 100, 0.1);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  border-radius: 0.3rem;
+  padding: 1rem;
+  border: 3px solid rgb(200, 100, 200, 0.7);
+}
+
+.master-controls-header {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.slider-item {
+  margin-top: 0.4rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.item-controls-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 600px) {
+  .flex-wrapper {
+    top: 18vh;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .all-slider-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.2rem;
+    box-sizing: border-box;
+    /* padding: 0.6rem; */
+  }
+
+  .master-controls-container {
+    width: 100%;
+    min-width: 100%;
+    /* max-width: 10rem; */
+    background-color: rgb(100, 100, 100, 0.1);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 3px solid rgb(200, 100, 200, 0.7);
+  }
+}

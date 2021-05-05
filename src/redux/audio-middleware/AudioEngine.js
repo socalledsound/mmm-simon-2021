@@ -1,8 +1,9 @@
 import { sounds } from '../../assets/sounds';
 import { reverseBuffers } from './audio.utils';
-import globalSettings from '../../globalSettings';
+// import globalSettings from '../../globalSettings';
 
-const { numSounds } = globalSettings;
+// const { numSounds } = globalSettings;
+const numSounds = 10;
 
 class AudioEngine {
     constructor(){

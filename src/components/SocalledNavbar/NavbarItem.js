@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
-const NavbarLink = styled(NavLink)`
+const Button = styled('button')`
 
 margin-left: 0.4rem;
 margin-right: 0.4rem;
@@ -33,9 +33,9 @@ box-sizing: border-box;
 const NavItem = ({item}) => {
     return ( 
       
-            <NavbarLink key={item.id} to={item.path}>
+            <Button  >
             {item.title}
-            </NavbarLink>
+            </Button>
         
      );
 }

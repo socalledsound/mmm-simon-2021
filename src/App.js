@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-
-import {Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
 import SocalledNavbar from './components/SocalledNavbar/SocalledNavbar'
 import Main from './pages/Main/Main'
-import About from './pages/About/About'
+
 
 class App extends Component {
     state = {  }
@@ -14,10 +12,7 @@ class App extends Component {
             <React.Fragment>
               
                 <SocalledNavbar />
-                <Switch>
-                    <Route exact path="/" component={Main}/>
-                    <Route path="/about" component={About}/>
-                </Switch>
+                <Main />
                 
             </React.Fragment>
          );
