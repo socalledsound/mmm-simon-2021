@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const AboutDiv = styled.div`
 padding: 3rem;
 color: #000;
+margin-top: 2rem;
 
 `;
 

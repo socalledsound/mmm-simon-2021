@@ -27,7 +27,7 @@ const MainSVG = ({ canvasWidth, canvasHeight, circleRadius, soundSlices, joined,
         {    
                 soundSlices.length > 0 && soundSlices.map(soundSlice => 
                         <Arc 
-                        key={soundSlice.id}
+                        key={`arc${soundSlice.id}`}
                         name="pitchControl"
                         x={soundSlice.center.x}
                         y={soundSlice.center.y}
@@ -62,7 +62,7 @@ const MainSVG = ({ canvasWidth, canvasHeight, circleRadius, soundSlices, joined,
 
         </g>
 
-    <circle cx={mousePos.x} cy = {mousePos.y - 120} r="10" fill="yellow" /> 
+    {/* <circle cx={mousePos.x} cy = {mousePos.y - 120} r="10" fill="yellow" />  */}
 
 </svg>
 

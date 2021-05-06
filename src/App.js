@@ -6,7 +6,7 @@ import Modal from './components/Modal/Modal'
 import About from './pages/About/About'
 import Logo from './assets/SimonLogo/SimonLogo'
 import Controls from './pages/controls-page/Controls'
-
+import CloseModal from './components/CloseModal/CloseModal'
 
 class App extends Component {
     state = { 
@@ -14,9 +14,18 @@ class App extends Component {
         modal : false,
      }
 
+     closeModal = () => {
+         this.setState({ modal: false })
+     }
+
      toggleModal = (page) => {
-        const { modal } = this.state
-        this.setState({selected : page, modal: !modal})
+        const { modal, selected } = this.state
+        if(page === selected){
+            this.setState({selected : page, modal: !modal})
+        } else {
+            this.setState({selected : page, modal: true})
+        }
+        
         
      }
 
@@ -37,6 +46,7 @@ class App extends Component {
                 <Main />
                 { modal &&
                         <Modal>
+                           <CloseModal closeModal={this.closeModal}/>
                             {<Content />}
                         </Modal>
                 }

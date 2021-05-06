@@ -7,33 +7,6 @@ import NavbarLogo from './NavbarLogo'
 import NavbarItem from './NavbarItem'
 import FlexContainer from './FlexContainer'
 
-
-// const NavbarConfig = {
-
-//     home : {
-//         logo: Logo
-//     },
-//     items :[ 
-//         {
-//             id: 0,
-//             modal: About,
-//             icon: QuestionMark,
-//         },
-//         {
-//             id: 1,
-//             modal: Controls,
-//             icon: ControlsIcon,
-//         },
-//         {
-//             id: 2,
-//             path: '/controls',
-//             title: 'more'
-//         }
-
-//     ]
-// }
-
-
 class SocalledNavbar extends Component {
     state = {  }
     render() { 

@@ -4,13 +4,27 @@ import { updateMousePos, storeMouseRef } from '../../redux/mouse/mouse.actions'
 import { initGame } from '../../redux/game/game.actions'
 import { initSoundSlices } from '../../redux/soundSlice/soundSlice.actions'
 import SoundSlice from '../../redux/soundSlice/SoundSlice'
-import { getRandomColor } from '../../utils'
 // import { canvasWidth, canvasHeight, circleRadius, circleBackgroundColor } from '../../globalSettings';
 import MainSVG from '../../components/MainSVG/MainSVG'
 import MainContainer from './MainContainer'
 
 
+const playerColors = [
+    '#9449f5',
+    '#49f5ec',
+    '#87f25c',
+    '#ffc163',
+    '#f77977',
+    '#777df7',
+]
 
+const altColors = [
+    '',
+    '',
+    '',
+    '',
+    '#ff0d39',
+]
 
 
 class Main extends Component {
@@ -27,7 +41,7 @@ class Main extends Component {
            
             const soundSlices = Array.from({ length: numPlayers }, (el, i) => {
                 //id, center, distance, length, thetaOffset, stroke, strokeWidth 
-                return new SoundSlice(i, {x: canvasWidth/2, y: canvasHeight/2}, circleRadius * .68, 320/numPlayers, (360/numPlayers) * i, getRandomColor(), circleRadius * .4);
+                return new SoundSlice(i, {x: canvasWidth/2, y: canvasHeight/2}, circleRadius * .68, 320/numPlayers, (360/numPlayers) * i, playerColors[i], circleRadius * .4);
             })
             initSoundSlices(soundSlices)
         }
