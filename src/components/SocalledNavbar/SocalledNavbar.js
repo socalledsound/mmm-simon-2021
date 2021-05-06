@@ -6,6 +6,7 @@ import Navbar from './Navbar'
 import NavbarLogo from './NavbarLogo'
 import NavbarItem from './NavbarItem'
 import FlexContainer from './FlexContainer'
+import FlexContainerGrow from './FlexContainerGrow'
 
 class SocalledNavbar extends Component {
     state = {  }
@@ -18,9 +19,9 @@ class SocalledNavbar extends Component {
            
             <Navbar>
                  
-                 <FlexContainer>
+                 <FlexContainerGrow>
                     {<NavbarLogo Logo={Logo} />}
-                 </FlexContainer>
+                 </FlexContainerGrow>
 
                  <FlexContainer>
                 {

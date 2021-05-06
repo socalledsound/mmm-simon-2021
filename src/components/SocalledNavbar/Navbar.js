@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const NavbarEl = styled.nav`
   margin: auto;
+  width: 100%;
 `
 
 const NavbarList = styled.ul`

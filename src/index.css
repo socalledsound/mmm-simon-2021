@@ -6,6 +6,7 @@ body {
     Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   background: #202020;
+  width: 100vw;
 }
 
 input {

@@ -18,7 +18,6 @@ border-radius: 0.3rem;
 font-size: 0.9rem;
 width: 5rem;
 height: 5rem;
-min-width: 100px;
 vertical-align: middle;
 box-sizing: border-box;
 
