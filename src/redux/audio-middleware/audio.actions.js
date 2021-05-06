@@ -9,6 +9,13 @@ export const trigSound = (idx, audioParameters, dir) => ({
     }
 })
 
+export const trigSoundSimple = (idx) => ({
+    type : AudioActionTypes.TRIG_SOUND,
+    payload : {
+        idx,
+    }
+})
+
 export const stopPlayingSound = idx => ({
     type : AudioActionTypes.STOP_PLAYING_SOUND,
     payload : {

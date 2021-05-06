@@ -10,6 +10,9 @@ export const initSoundSlices = (slices) => ({
 
 export const triggerSlice = (id) => ({
     type : SoundSliceActionTypes.TRIGGER_SLICE,
+    payload : {
+        id
+    }
 }) 
 
 export const hoverSlice = (id) => ({  

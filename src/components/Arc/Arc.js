@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { triggerSlice, hoverSlice } from '../../redux/soundSlice/soundSlice.actions'
+import { trigSoundSimple } from '../../redux/audio-middleware/audio.actions'
 import { createCirclePath, arcPoints } from '../../utils';
 import { trimColor, trimColorAlt } from '../../colorPalette'
 
@@ -8,9 +9,13 @@ const Arc = ({ id, x, y, numPoints, distance, length, thetaOffset, fill, stroke,
 
     const dispatch = useDispatch();
 
-    // const handleHover = () => {
-    //     dispatch(hoverSlice(id))
-    // }
+    const handleClick = () => {
+        dispatch(trigSoundSimple(id))
+        dispatch(triggerSlice(id))
+        setTimeout(() => {
+            dispatch(triggerSlice(id))
+        }, 500)
+    }
 
     return ( 
         <g>
@@ -33,7 +38,7 @@ const Arc = ({ id, x, y, numPoints, distance, length, thetaOffset, fill, stroke,
             fill={fill}
             stroke={triggered ? altStroke : stroke}
             strokeWidth={strokeWidth}
-            onMouseDown={() => dispatch(triggerSlice(id))}
+            onMouseDown={handleClick}
             // onMouseUp={() => dispatch(toggleSlice(id))}
             onMouseEnter={() => dispatch(hoverSlice(id))}
             onMouseLeave={() => dispatch(hoverSlice(id))}

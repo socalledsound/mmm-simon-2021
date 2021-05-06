@@ -15,19 +15,19 @@ const soundSliceReducer = (state = INITIAL_STATE, action) => {
             }
 
         case SoundSliceActionTypes.TRIGGER_SLICE :
+            // console.log(action);
             return {
-                ...state
+                ...state,
+                soundSlices : state.soundSlices.map((slice, i) => 
+                i === action.payload.id ? 
+                        {...slice, triggered: !state.soundSlices[action.payload.id].triggered} 
+                        :
+                        slice
+                        )
             }
         case SoundSliceActionTypes.HOVER_SLICE :
-            // case 'SOME_ACTION':
-            //     return { 
-            //         ...state, 
-            //         contents: state.contents.map(
-            //             (content, i) => i === 1 ? {...content, text: action.payload}
-            //                                     : content
-            //         )
-            //      }  
-            console.log(action);
+        
+            
             
                 return {
                     ...state,

@@ -39,18 +39,40 @@ class AudioEngine {
         return Promise.all(sounds.map(soundFile => this.initBuffer(soundFile)));   
      }
 
-    play(idx, audioParameters, dir){
+    play(idx, audioParameters = {vol: 1.0, rate: 1.0}, dir = 1){
         this.gainNodes[idx].gain.value = audioParameters.vol;
         const buf = dir > 0 ? this.buffers[idx] : this.reversedBuffers[idx]; 
-        const offset = Math.abs(0)%buf.duration;
+        const offset = Math.abs(3)%buf.duration;
         this.sources[idx] = this.audioContext.createBufferSource();
         this.sources[idx].buffer = buf;
         this.gainNodes[idx].connect(this.audioContext.destination);
         this.sources[idx].connect(this.gainNodes[idx]);
         this.sources[idx].loop = true;
         this.sources[idx].playbackRate.value = audioParameters.rate;
-        this.sources[idx].start(0, offset);
+        this.sources[idx].start(0, offset, 0.5);
         this.playingSounds[idx] = true;
+    }
+
+    playSimon(id){
+        console.log('playing simon')
+        const bufnum = id;
+        // const setting = store.getState().controls.voiceSettings.filter(setting => setting.id === id)[0];
+        const now = this.audioContext.currentTime;
+        const gainNode = this.audioContext.createGain();
+        const attack = 0.1, release = 0.1, duration = 0.8;
+        // gainNode.gain.value = setting.volume * masterSettings.volume;
+        gainNode.gain.value = 10.0;
+        const env = (attack + release + duration);
+        // gainNode.gain.linearRampToValueAtTime(setting.volume * masterSettings.volume, now + attack);
+        gainNode.gain.linearRampToValueAtTime(1.0, now + attack);
+        gainNode.gain.linearRampToValueAtTime(0, now + env);
+        this.sources[bufnum] = this.audioContext.createBufferSource();
+        this.sources[bufnum].buffer = this.buffers[bufnum];
+        gainNode.connect(this.audioContext.destination);
+        this.sources[bufnum].connect(gainNode);
+        this.sources[bufnum].playbackRate.value = 1.0;
+        // console.log(this.buffers[bufnum].duration);
+        this.sources[bufnum].start(0, 1.0, env);
     }
 
 

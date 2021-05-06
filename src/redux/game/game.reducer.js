@@ -12,7 +12,7 @@ const canvasHeight = window.innerHeight;
 const INITIAL_STATE = {
     canvasWidth,
     canvasHeight,
-    circleRadius : window.innerWidth/5,
+    circleRadius : window.innerWidth/4.5,
     circleCenter : {x: canvasWidth/2, y: canvasHeight/2},
     numPlayers : 5,
     started: false,

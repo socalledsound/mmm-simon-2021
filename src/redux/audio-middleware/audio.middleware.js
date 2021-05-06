@@ -11,12 +11,13 @@ const audioMiddleWare = store => {
         switch (action.type){
             
             case AudioActionTypes.TRIG_SOUND : 
-                console.log(action);
-                crowdSounds.trig(action.payload.idx, action.payload.audioParameters, action.payload.dir);
+                // console.log(action);
+                // crowdSounds.trig(action.payload.idx, action.payload.audioParameters, action.payload.dir);
+                crowdSounds.playSimon(action.payload.idx);
                 break;
 
             case AudioActionTypes.PLAY_ALL_SOUNDS : 
-                console.log(action);
+                // console.log(action);
                 crowdSounds.trigAll(action.payload.dir);
                 break;
 

@@ -9,7 +9,7 @@ class SoundSlice {
         this.altStroke = altStroke;
         this.strokeWidth = strokeWidth;
         this.hovering = false;
-        this.triggered = true;
+        this.triggered = false;
         this.playingSound= false;
     }
 
