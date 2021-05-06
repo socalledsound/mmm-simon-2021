@@ -14,14 +14,29 @@ const soundSliceReducer = (state = INITIAL_STATE, action) => {
                 soundSlices : state.soundSlices.concat(action.payload.slices)
             }
 
-        case SoundSliceActionTypes.TOGGLE_SLICE :
+        case SoundSliceActionTypes.TRIGGER_SLICE :
             return {
                 ...state
             }
         case SoundSliceActionTypes.HOVER_SLICE :
-                console.log('hovering')
+            // case 'SOME_ACTION':
+            //     return { 
+            //         ...state, 
+            //         contents: state.contents.map(
+            //             (content, i) => i === 1 ? {...content, text: action.payload}
+            //                                     : content
+            //         )
+            //      }  
+            console.log(action);
+            
                 return {
-                    ...state
+                    ...state,
+                    soundSlices : state.soundSlices.map((slice, i) => 
+                            i === action.payload.id ? 
+                                    {...slice, hovering: !state.soundSlices[action.payload.id].hovering} 
+                                    :
+                                    slice
+                                    )
                 }    
         default : 
             return {

@@ -1,12 +1,12 @@
 import React from 'react'
 import BackgroundCircle from '../BackgroundCircle/BackgroundCircle'
-import JoinButton from '../JoinButton/JoinButton'
+// import JoinButton from '../JoinButton/JoinButton'
 import Arc from '../Arc/Arc'
 
 
 
 
-const MainSVG = ({ canvasWidth, canvasHeight, circleRadius, soundSlices, joined, mousePos}) => {
+const MainSVG = ({ canvasWidth, canvasHeight, circleCenter, circleRadius, soundSlices, joined, mousePos}) => {
     // console.log(joined, soundSlices)
     return ( 
         <svg
@@ -21,17 +21,18 @@ const MainSVG = ({ canvasWidth, canvasHeight, circleRadius, soundSlices, joined,
     <path d="M0 0 70-70A99 99 0 0 1 70 70Z" fill="#dd0"/>
     <path d="M0 0 70 70A99 99 0 0 1-70 70Z" fill="#04e"/>
   </g> */}
-    <BackgroundCircle cx={canvasWidth/2} cy={canvasHeight/2} r={circleRadius}/>
+    <BackgroundCircle cx={circleCenter.x} cy={circleCenter.y} r={circleRadius}/>
 
 
         {    
                 soundSlices.length > 0 && soundSlices.map(soundSlice => 
                         <Arc 
                         key={`arc${soundSlice.id}`}
+                        id={soundSlice.id}
                         name="pitchControl"
-                        x={soundSlice.center.x}
-                        y={soundSlice.center.y}
-                        numPoints={60}
+                        x={circleCenter.x}
+                        y={circleCenter.y}
+                        numPoints={soundSlice.numPoints}
                         distance={soundSlice.distance}
                         // distance={mapVal(soundCircle.pitchControl.val,
                         //     0.0, 2.0, 0.6,1.4) * soundCircle.size  + 22}
@@ -42,7 +43,10 @@ const MainSVG = ({ canvasWidth, canvasHeight, circleRadius, soundSlices, joined,
                         //     soundCircle.volumeControl.hover ? soundCircle.volumeControl.hoverFill : soundCircle.volumeControl.fill} 
                         fill={"transparent"}
                         stroke={soundSlice.stroke} 
+                        altStroke={soundSlice.altStroke}
                         strokeWidth={soundSlice.strokeWidth}
+                        hovering={soundSlice.hovering}
+                        triggered={soundSlice.triggered}
                         // updateParentWithMouseDown={this.toggleArc}
                         // updateParentWithMouseUp={this.mouseUp}
                         // updateParentWithHover={this.hoverArc} 
@@ -51,13 +55,13 @@ const MainSVG = ({ canvasWidth, canvasHeight, circleRadius, soundSlices, joined,
                 )
         }
 
-        {
+        {/* {
             !joined && 
 
-            <JoinButton cx={canvasWidth/2} cy={canvasHeight/2} r={circleRadius/3}/>
+            <JoinButton cx={circleCenter.x} cy={circleCenter.y} r={circleRadius/3}/>
             
 
-        }
+        } */}
 
 
         </g>

@@ -7,24 +7,9 @@ import SoundSlice from '../../redux/soundSlice/SoundSlice'
 // import { canvasWidth, canvasHeight, circleRadius, circleBackgroundColor } from '../../globalSettings';
 import MainSVG from '../../components/MainSVG/MainSVG'
 import MainContainer from './MainContainer'
+import { playerColors, altPlayerColors } from '../../colorPalette'
 
 
-const playerColors = [
-    '#9449f5',
-    '#49f5ec',
-    '#87f25c',
-    '#ffc163',
-    '#f77977',
-    '#777df7',
-]
-
-const altColors = [
-    '',
-    '',
-    '',
-    '',
-    '#ff0d39',
-]
 
 
 class Main extends Component {
@@ -35,13 +20,21 @@ class Main extends Component {
 
     componentDidMount(){
         const { updateMousePos, game, initGame, initSoundSlices } = this.props;
-        const { started, canvasWidth, canvasHeight, circleRadius, numPlayers } = game;
+        const { started, circleRadius, numPlayers } = game;
         if(!started){
             initGame();
            
             const soundSlices = Array.from({ length: numPlayers }, (el, i) => {
-                //id, center, distance, length, thetaOffset, stroke, strokeWidth 
-                return new SoundSlice(i, {x: canvasWidth/2, y: canvasHeight/2}, circleRadius * .68, 320/numPlayers, (360/numPlayers) * i, playerColors[i], circleRadius * .4);
+                 
+                return new SoundSlice(
+                                i, // id 
+                                circleRadius * .68, //distance from center
+                                320/numPlayers, //length
+                                (360/numPlayers) * i, //theta offset
+                                playerColors[i], // main color
+                                altPlayerColors[i], // triggered color
+                                circleRadius * .4  //strokeWidth aka depth of arc
+                                )  
             })
             initSoundSlices(soundSlices)
         }
@@ -81,7 +74,7 @@ class Main extends Component {
 
     render(){
         const { updateMousePos, mousePos, soundSlices, joined, game  } = this.props;
-        const { canvasWidth, canvasHeight, circleRadius } = game;
+        const { canvasWidth, canvasHeight, circleRadius, circleCenter } = game;
         return ( 
             <MainContainer
             onMouseMove={(e) => updateMousePos(e.clientX, e.clientY)}
@@ -95,6 +88,7 @@ class Main extends Component {
                     mousePos={mousePos} 
                     canvasWidth={canvasWidth} 
                     canvasHeight={canvasHeight} 
+                    circleCenter={circleCenter}
                     circleRadius={circleRadius} 
                     soundSlices={soundSlices}
                     joined={joined}

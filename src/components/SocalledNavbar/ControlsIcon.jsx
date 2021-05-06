@@ -1,6 +1,8 @@
 // import React, { useState } from 'react'
 import React from 'react';
 import { createLinePath } from '../../utils';
+import { controlIconColors } from '../../colorPalette'
+
 const circles = Array.from({ length : 3}, (e, i) => ({
     cx : 25 * (i+ 1),
     cy : 50,
@@ -33,7 +35,7 @@ const ControlsIcon = () => {
                         d={createLinePath(lines[i])}
                         // stroke={hover ? 'black' : "#ececec"}
                         // stroke="#5e2878"
-                        stroke="#ff73f8"
+                        stroke={controlIconColors.lineColor}
                         strokeWidth="3"
                     />
                 )
@@ -49,8 +51,8 @@ const ControlsIcon = () => {
                         // stroke="#ececec"
                         // stroke="#4444ff"
                         //stroke="#282578"
-                        fill="#1eadeb"
-                        strokeWidth="2"
+                        fill={controlIconColors.knobColor}
+                        strokeWidth="1"
                     />
                     )
            }
@@ -60,12 +62,12 @@ const ControlsIcon = () => {
                                    key={`control-icon-circle-${i}`}
                                    cx={circle.cx}
                                    cy={circle.cy}
-                                   r={circle.r * 0.5}
+                                   r={circle.r * 0.9}
                                    // fill="transparent"
                                    // stroke="#ececec"
                                    // stroke="#4444ff"
                                    //stroke="#282578"
-                                   fill="#1d2169"
+                                   fill={controlIconColors.knobEyeColor}
                                    strokeWidth="2"
                                />
                                )

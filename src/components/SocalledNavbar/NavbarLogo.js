@@ -21,11 +21,11 @@ box-sizing: border-box;
 /* padding-bottom: 1.2rem; */
 /* background-color: #7c7c7c; */
 // background-color: #fedeff;
-background-color: rgba(0, 0, 100, 0.3);
+// background-color: rgba(0, 0, 100, 0.3);
 // color: #202020;
-border: 1px solid #000;
+// border: 1px solid #000;
 text-decoration: none;
-border-radius: 0.3rem;
+// border-radius: 0.3rem;
 font-size: 0.9rem;
 
 

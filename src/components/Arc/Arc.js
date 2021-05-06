@@ -1,11 +1,16 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { toggleSlice, hoverSlice } from '../../redux/soundSlice/soundSlice.actions'
+import { triggerSlice, hoverSlice } from '../../redux/soundSlice/soundSlice.actions'
 import { createCirclePath, arcPoints } from '../../utils';
+import { trimColor, trimColorAlt } from '../../colorPalette'
 
-const Arc = ({ id, x, y, numPoints, distance, length, thetaOffset, fill, stroke, strokeWidth}) => {
+const Arc = ({ id, x, y, numPoints, distance, length, thetaOffset, fill, stroke,  altStroke, strokeWidth, hovering, triggered}) => {
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+
+    // const handleHover = () => {
+    //     dispatch(hoverSlice(id))
+    // }
 
     return ( 
         <g>
@@ -14,24 +19,24 @@ const Arc = ({ id, x, y, numPoints, distance, length, thetaOffset, fill, stroke,
             d={createCirclePath(arcPoints(numPoints, x, y, distance, length, thetaOffset ))}
             fill={fill}
             // alt : #fa0a37
-            stroke={"#4a0a16"}
+            stroke={hovering ? trimColorAlt : trimColor}
             strokeWidth={strokeWidth + 10}
-            onMouseDown={(id) => dispatch(toggleSlice(id))}
-            onMouseUp={(id) => dispatch(toggleSlice(id))}
-            onMouseEnter={(id) => dispatch(hoverSlice(id))}
-            onMouseLeave={(id) => dispatch(hoverSlice(id))}
+            // onMouseDown={() => dispatch(toggleSlice(id))}
+            // onMouseUp={() => dispatch(toggleSlice(id))}
+            // onMouseEnter={handleHover}
+            // onMouseLeave={handleHover}
         
         />
         <path 
             id={id}
             d={createCirclePath(arcPoints(numPoints, x, y, distance, length, thetaOffset ))}
             fill={fill}
-            stroke={stroke}
+            stroke={triggered ? altStroke : stroke}
             strokeWidth={strokeWidth}
-            onMouseDown={(id) => dispatch(toggleSlice(id))}
-            onMouseUp={(id) => dispatch(toggleSlice(id))}
-            onMouseEnter={(id) => dispatch(hoverSlice(id))}
-            onMouseLeave={(id) => dispatch(hoverSlice(id))}
+            onMouseDown={() => dispatch(triggerSlice(id))}
+            // onMouseUp={() => dispatch(toggleSlice(id))}
+            onMouseEnter={() => dispatch(hoverSlice(id))}
+            onMouseLeave={() => dispatch(hoverSlice(id))}
         
         />
 

@@ -6,11 +6,15 @@ import GameActionTypes from './game.action.types.js'
 // export const circleRadius = window.innerHeight/3;
 // export const circleBackgroundColor = "#333";
 
+const canvasWidth = window.innerWidth/2;
+const canvasHeight = window.innerHeight;
+
 const INITIAL_STATE = {
-    canvasWidth : window.innerWidth,
-    canvasHeight : window.innerHeight,
-    circleRadius : window.innerHeight/3,
-    numPlayers : 4,
+    canvasWidth,
+    canvasHeight,
+    circleRadius : window.innerWidth/5,
+    circleCenter : {x: canvasWidth/2, y: canvasHeight/2},
+    numPlayers : 5,
     started: false,
 }
 

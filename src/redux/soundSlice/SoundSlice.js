@@ -1,13 +1,15 @@
 class SoundSlice {
-    constructor(id, center, distance, length, thetaOffset, stroke, strokeWidth ){
+    constructor(id, distance, length, thetaOffset, stroke, altStroke, strokeWidth ){
         this.id = id;
-        this.center = center;
         this.distance = distance;
+        this.numPoints = 120;
         this.length = length;
         this.thetaOffset = thetaOffset;
         this.stroke = stroke;
+        this.altStroke = altStroke;
         this.strokeWidth = strokeWidth;
         this.hovering = false;
+        this.triggered = true;
         this.playingSound= false;
     }
 

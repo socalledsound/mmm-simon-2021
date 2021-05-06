@@ -2,12 +2,19 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import SocalledNavbar from './components/SocalledNavbar/SocalledNavbar'
 import Main from './pages/Main/Main'
+import ChatPanel from './pages/ChatPanel/ChatPanel'
 import Modal from './components/Modal/Modal'
 import About from './pages/About/About'
 import Logo from './assets/SimonLogo/SimonLogo'
 import Controls from './pages/controls-page/Controls'
 import CloseModal from './components/CloseModal/CloseModal'
+import styled from 'styled-components'
 
+const MainContainer = styled.div`
+display: flex;
+max-width: 50vw;
+
+`;
 class App extends Component {
     state = { 
         selected: null,
@@ -43,7 +50,11 @@ class App extends Component {
                     Controls={Controls}
                     toggleModal={this.toggleModal}
                 />
-                <Main />
+                <MainContainer>
+                    <Main />
+                    <ChatPanel />
+                </MainContainer>
+
                 { modal &&
                         <Modal>
                            <CloseModal closeModal={this.closeModal}/>
