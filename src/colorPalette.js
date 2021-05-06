@@ -3,7 +3,8 @@
 // export const circleRadius = window.innerHeight/3;
 // export const circleBackgroundColor = "#333";
 // export const backgroundCircleColor = '#ffffa3'
-export const backgroundCircleColor = 'rgba(134, 156, 158, 0.7)'
+export const backgroundCircleColor = 'rgba(134, 156, 158, 0.6)'
+export const backgroundGrey = 'rgba(134, 156, 158, 0.4)'
 // export const trimColor = '#6e0442'
 export const trimColor = '#0d0340'
 export const trimColorAlt = '#2d09e6'

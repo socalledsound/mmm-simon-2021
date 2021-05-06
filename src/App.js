@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import SocalledNavbar from './components/SocalledNavbar/SocalledNavbar'
 import Main from './pages/Main/Main'
-import ChatPanel from './pages/ChatPanel/ChatPanel'
+import SidePanel from './pages/SidePanel/SidePanel'
 import Modal from './components/Modal/Modal'
 import About from './pages/About/About'
-import Logo from './assets/SimonLogo/SimonLogo'
+import Logo from './components/SimonLogo/SimonLogo'
 import Controls from './pages/controls-page/Controls'
 import CloseModal from './components/CloseModal/CloseModal'
 import styled from 'styled-components'
@@ -52,7 +52,7 @@ class App extends Component {
                 />
                 <MainContainer>
                     <Main />
-                    <ChatPanel />
+                    <SidePanel />
                 </MainContainer>
 
                 { modal &&
